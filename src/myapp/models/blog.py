@@ -41,7 +41,7 @@ class Blog:
         new_post.set_id(TEMP_POST_ID)
         new_post.set_id(get_next_id("post"))
         self.posts.append(new_post)
-        save_id_to_sequence(new_post.id)
+        save_id_to_sequence("post", new_post.get_id())
 
     def delete(self, post):
         """Delete the given post from the collection."""

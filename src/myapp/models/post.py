@@ -33,6 +33,10 @@ class Post:
         """Set id for a Post instance."""
         self.id = id
 
+    def get_id(self):
+        """Return id for a Post instance."""
+        return self.id
+
 
 def main():
     """Main function for testing."""

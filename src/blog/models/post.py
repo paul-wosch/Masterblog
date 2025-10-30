@@ -29,6 +29,10 @@ class Post:
         """Increment the like value by one."""
         self.likes += 1
 
+    def set_id(self, id):
+        """Set id for a Post instance."""
+        self.id = id
+
 
 def main():
     """Main function for testing."""

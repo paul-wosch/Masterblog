@@ -1,5 +1,6 @@
 """Provide basic file handling operations like read and write."""
 import json
+import blog.models
 
 JSON_INDENT = 4
 

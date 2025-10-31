@@ -10,3 +10,9 @@ BLOG_FILE_PATH = (DATA_PATH / BLOG_FILE).resolve()
 # sequence storage
 SEQUENCE_FILE = Path("sequence.json")
 SEQUENCE_FILE_PATH = (DATA_PATH / SEQUENCE_FILE).resolve()
+# Flask templates folder
+TEMPLATES_DIR = "templates"
+TEMPLATES_PATH = (PROJECT_ROOT / TEMPLATES_DIR).resolve()
+# Flask static folder
+STATIC_DIR = "static"
+STATIC_PATH = (PROJECT_ROOT / STATIC_DIR).resolve()

@@ -1,6 +1,7 @@
 from flask import Flask
+from myapp.config import TEMPLATES_PATH, STATIC_PATH
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=TEMPLATES_PATH, static_folder=STATIC_PATH)
 
 
 @app.route('/')

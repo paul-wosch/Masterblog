@@ -12,10 +12,21 @@
     {% if posts %}
     {% for post in posts %}
     <div class="post">
-        <h2>{{ post.title }}</h2>
+        <h2><a href="/{{ post.id }}">{{ post.title }}</a></h2>
         <p><em>Written by {{ post.author }}</em></p>
         <p>{{ post.content }}</p>
         <p>{{ post.likes }}</p>
+        <div class="post-actions">
+            <form action="/like/{{ post.id }}" method="post">
+                <button>Like</button>
+            </form>
+            <a href="/update/{{ post.id }}">
+                <button>Update</button>
+            </a>
+            <form action="/delete/{{ post.id }}" method="post">
+                <button>Delete</button>
+            </form>
+        </div>
     </div>
     {% endfor %}
     {% else %}

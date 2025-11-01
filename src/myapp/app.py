@@ -34,7 +34,12 @@ def add(post=None):
 @app.route("/update/<int:post_id>", methods=["GET", "POST"])
 def update(post_id):
     """Show a form for updating a blog post."""
-    return "update"
+    post_obj = get_post_obj_or_404(post_id)
+    if request.method == 'POST':
+        post_data = dict(request.form)
+        my_blog.update(post_id=post_id, **post_data)
+        return redirect(url_for('index'))
+    return render_template('update.html', post=post_obj)
 
 
 @app.route("/like/<int:post_id>", methods=["POST"])

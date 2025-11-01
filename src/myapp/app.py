@@ -17,11 +17,7 @@ def index():
 @app.route("/show/<post_id>")
 def show(post_id):
     """Show a single blog post."""
-    post_obj = None
-    if post_id.isdigit():
-        post_obj = my_blog.get(int(post_id))
-    if post_obj is None:
-        abort(404)
+    post_obj = get_post_obj_or_404(post_id)
     return render_template('show.html', post=post_obj)
 
 
@@ -52,6 +48,13 @@ def delete(post_id):
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html', error=error), 404
+
+
+def get_post_obj_or_404(post_id):
+    """Return a post object for the given id or raise 404."""
+    if not post_id.isdigit() or not (post_obj := my_blog.get(int(post_id))):
+        abort(404)
+    return post_obj
 
 
 if __name__ == "__main__":

@@ -41,7 +41,7 @@ def like(post_id):
     """
     post_obj = get_post_obj_or_404(post_id)
     post_obj.like()
-    return redirect(f"../show/{post_id}")
+    return redirect(url_for('show', post_id=post_id))
 
 
 @app.route("/delete/<int:post_id>", methods=["POST"])

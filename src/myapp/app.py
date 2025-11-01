@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, redirect, url_for
+from flask import Flask, render_template, abort, redirect, url_for, request
 from myapp.config import TEMPLATES_PATH, STATIC_PATH
 from myapp.models.blog import Blog
 
@@ -22,9 +22,13 @@ def show(post_id):
 
 
 @app.route("/add", methods=["GET", "POST"])
-def add():
+def add(post=None):
     """Show a form for adding a blog post."""
-    return "add"
+    if request.method == 'POST':
+        new_post = dict(request.form)
+        my_blog.add(new_post)
+        return redirect(url_for('index'))
+    return render_template('add.html')
 
 
 @app.route("/update/<int:post_id>", methods=["GET", "POST"])

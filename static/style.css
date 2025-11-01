@@ -22,12 +22,14 @@ h1 {
     margin-top: 0;
 }
 
-.post h2 a {
+.post h2 a,
+.message a {
     text-decoration: none;
     color: #333;
 }
 
-.post h2 a:hover {
+.post h2 a:hover,
+.message a:hover {
     text-decoration: underline;
 }
 

@@ -57,6 +57,7 @@ The project demonstrates:
 ```
 .
 ├── .gitignore           # Ignore sensitive/generated files
+├── LICENSE              # MIT license text
 ├── pyproject.toml       # Project metadata and dependencies
 ├── README.md            # Project documentation
 ├── src/                 # Main application source code
@@ -151,3 +152,9 @@ This project is primarily a learning exercise, but contributions, suggestions, o
 3. Commit your changes (`git commit -m "feat: Add your feature"`)  
 4. Push to the branch (`git push origin feature/your-feature`)  
 5. Open a Pull Request  
+
+---
+
+## 📄 License
+This project is licensed under the terms of the [MIT License](./LICENSE).
+See the LICENSE file for full details.

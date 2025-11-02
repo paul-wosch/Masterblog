@@ -1,3 +1,10 @@
+"""Main application module for the blog.
+
+This module sets up the Flask web application, configures paths,
+and defines all URL routes for viewing, adding, updating, deleting,
+and liking blog posts. It initializes the Blog model and handles
+routing requests to the appropriate templates or actions.
+"""
 from flask import Flask, render_template, abort, redirect, url_for, request
 from myapp.config import TEMPLATES_PATH, STATIC_PATH
 from myapp.models.blog import Blog
@@ -22,7 +29,7 @@ def show(post_id):
 
 
 @app.route("/add", methods=["GET", "POST"])
-def add(post=None):
+def add():
     """Show a form for adding a blog post."""
     if request.method == 'POST':
         new_post = dict(request.form)
@@ -66,6 +73,7 @@ def delete(post_id):
 
 @app.errorhandler(404)
 def page_not_found(error):
+    """Handle 404 errors by rendering a custom 404 page."""
     return render_template('404.html', error=error), 404
 
 

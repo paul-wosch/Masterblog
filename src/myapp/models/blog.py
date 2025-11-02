@@ -22,9 +22,9 @@ class Blog:
             data = {"post": 0}
             write_json_file(seq_file, data)
 
-    def get(self, id):
+    def get(self, post_id):
         """Return a single post object by its id or None if no matching was found."""
-        return next((post for post in self.posts if post.id == id), None)
+        return next((post for post in self.posts if post.id == post_id), None)
 
     def get_posts(self):
         """Return all posts as a list of dictionaries."""

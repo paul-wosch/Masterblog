@@ -9,19 +9,19 @@ def get_next_id(model: str) -> int:
 
     Also, update the new id in the sequence dict and save it persistently.
     """
-    id = read_json_file(SEQUENCE_FILE_PATH).get(model, None)
-    if id:
-        id += 1
-    return id
+    post_id = read_json_file(SEQUENCE_FILE_PATH).get(model, None)
+    if post_id:
+        post_id += 1
+    return post_id
 
 
-def save_id_to_sequence(model: str, id: int):
+def save_id_to_sequence(model: str, post_id: int):
     """Save the given id for a model persistently."""
     # load data
     data = read_json_file(SEQUENCE_FILE_PATH)
     # update data only for valid model and id
-    if id and data.get(model) and isinstance(id, int):
-        data[model] = id
+    if post_id and data.get(model) and isinstance(post_id, int):
+        data[model] = post_id
         write_json_file(SEQUENCE_FILE_PATH, data)
 
 

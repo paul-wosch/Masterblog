@@ -4,9 +4,12 @@
 class Post:
     """Represent a specific post in a blog."""
 
-    def __init__(self, author: str, title: str, content: str, likes: int = 0, id: int = -1):
+    def __init__(self, author: str, title: str, content: str, likes: int = 0, post_id: int = -1):
         """Create a new Post instance."""
-        self.id = id
+        # pylint: disable=too-many-arguments
+        # pylint: disable=too-many-positional-arguments
+        # All attributes are necessary to represent a blog post
+        self.id = post_id
         self.author = author
         self.title = title
         self.content = content
@@ -29,9 +32,9 @@ class Post:
         """Increment the like value by one."""
         self.likes += 1
 
-    def set_id(self, id):
+    def set_id(self, post_id):
         """Set id for a Post instance."""
-        self.id = id
+        self.id = post_id
 
     def get_id(self):
         """Return id for a Post instance."""

@@ -86,8 +86,6 @@ The project demonstrates:
 
 ## 🛠️ Development Setup  
 
-Go to your project’s working directory:  
-
 1. **Clone the repository**:  
    ```bash
    git clone https://github.com/paul-wosch/Masterblog.git
@@ -115,7 +113,13 @@ Go to your project’s working directory:
    python src/myapp/app.py
    ```
 
-6. **Deactivate virtual environment** (optional):  
+6. **Access the app**:  
+   Open your browser and go to [http://127.0.0.1:5000](http://127.0.0.1:5000).  
+   - On a fresh install, no posts will be listed.  
+   - Instead, you’ll see a message with a link to **Add Post**.  
+   - Use that link to create your first blog entry.  
+
+7. **Deactivate virtual environment** (optional):  
    ```bash
    deactivate
    ```

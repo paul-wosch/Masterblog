@@ -5,7 +5,7 @@
 ![Code style: PEP8](https://img.shields.io/badge/code%20style-PEP8-yellow)
 ![Status](https://img.shields.io/badge/status-learning--project-orange)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-
+[![Quick Start](https://img.shields.io/badge/⚡-Quick%20Start-orange)](#-quick-start)
 
 ## ⚠️ Disclaimer  
 This project was created as part of my learning journey during a multi‑month software engineering course. It should be viewed as such: a work in progress where I applied my best effort and current knowledge. The focus of this project was on **Object‑Oriented Programming (OOP)**, **Flask**, **Jinja2 templates**, and **Python packaging**. While not production‑ready, it reflects my growth and dedication to learning software engineering principles.
@@ -86,6 +86,20 @@ The project demonstrates:
 
 ## 🛠️ Development Setup  
 
+### 🚀 Quick Start  
+For experienced users who just want to get the app running:  
+```bash
+git clone https://github.com/paul-wosch/Masterblog.git \
+&& cd Masterblog \
+&& pip install -e . \
+&& python src/myapp/app.py
+```
+Then open [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser.  
+On a fresh install, you’ll see a message with a link to **Add Post**.  
+
+---
+
+### 📖 Step‑by‑Step Guide  
 1. **Clone the repository**:  
    ```bash
    git clone https://github.com/paul-wosch/Masterblog.git

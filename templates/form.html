@@ -1,16 +1,16 @@
-{% if post is not defined %}
-{% set action_url = url_for('add') %}
-{% set post_author = "" %}
-{% set post_title = "" %}
-{% set post_content = "" %}
-{% set submit_action = "Add Post" %}
-{% else %}
-{% set action_url = url_for('update', post_id=post.id) %}
-{% set post_author = post.author %}
-{% set post_title = post.title %}
-{% set post_content = post.content %}
-{% set submit_action = "Update Post" %}
-{% endif %}
+{%- if post is not defined %}
+{%- set action_url = url_for('add') %}
+{%- set post_author = "" %}
+{%- set post_title = "" %}
+{%- set post_content = "" %}
+{%- set submit_action = "Add Post" %}
+{%- else %}
+{%- set action_url = url_for('update', post_id=post.id) %}
+{%- set post_author = post.author %}
+{%- set post_title = post.title %}
+{%- set post_content = post.content %}
+{%- set submit_action = "Update Post" %}
+{%- endif %}
 <h3>{{ subtitle }}</h3>
 <div id="add-update-form-wrapper" class="form">
     <form action="{{ action_url }}" method="POST">

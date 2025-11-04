@@ -1,30 +1,31 @@
 """Provide the Blog class."""
 from masterblog.models.post import Post
 from masterblog.storage import read_json_file, write_json_file, get_next_id, save_id_to_sequence
-from masterblog.config import BLOG_FILE_PATH, SEQUENCE_FILE_PATH
 
 
 class Blog:
     """Manage a collection of blog posts."""
 
-    def __init__(self, blog_data: list = None):
+    def __init__(self, blog_file_path, seq_file_path, blog_data: list = None):
         """Initialize a Blog instance."""
+        self.blog_file_path = blog_file_path
+        self.seq_file_path = seq_file_path
         self.posts = None
-        self._ensure_persistent_storage()
+        self._ensure_persistent_storage(blog_file_path, seq_file_path)
         self.load_blog(blog_data)
 
-    def _ensure_persistent_storage(self, blog_file=BLOG_FILE_PATH, seq_file=SEQUENCE_FILE_PATH):
+    def _ensure_persistent_storage(self, blog_file_path, seq_file_path):
         """Create JSON files if they don't exist."""
-        if not blog_file.exists():
+        if not blog_file_path.exists():
             data = []
-            write_json_file(blog_file, data)
-        if not seq_file.exists():
+            write_json_file(blog_file_path, data, create_missing=True)
+        if not seq_file_path.exists():
             data = {"post": 0}
-            write_json_file(seq_file, data)
+            write_json_file(seq_file_path, data, create_missing=True)
 
     def get(self, post_id):
         """Return a single post object by its id or None if no matching was found."""
-        return next((post for post in self.posts if post.id == post_id), None)
+        return next((post for post in self.posts if post.get_id() == post_id), None)
 
     def get_posts(self):
         """Return all posts as a list of dictionaries."""
@@ -48,9 +49,10 @@ class Blog:
             new_post = Post(**kwargs)
         # -------------------------------------------------------------
         # Auto increment id for new post and update sequence
-        new_post.set_id(get_next_id("post"))
+        next_id = get_next_id(self.seq_file_path, "post")
+        new_post.set_id(next_id)
         self.posts.append(new_post)
-        save_id_to_sequence("post", new_post.get_id())
+        save_id_to_sequence(self.seq_file_path, "post", new_post.get_id())
         self.save_blog()
 
     def update(self, post_id=None, post_object=None, **kwargs):
@@ -80,7 +82,8 @@ class Blog:
         if post_id is None and post_object is None:
             raise TypeError("Missing argument: post_object or post_id.")
         # Use existing post object or get one from post id
-        if post_object is None:
+        print("retrieve post object")
+        if post_id is not None and post_object is None:
             post_object = self.get(post_id)
         # Like post and save blog posts
         post_object.like()
@@ -93,12 +96,12 @@ class Blog:
 
     def save_blog(self):
         """Save the current collection of posts persistently."""
-        write_json_file(BLOG_FILE_PATH, self.get_posts())
+        write_json_file(self.blog_file_path, self.get_posts())
 
     def load_blog(self, blog_data: list = None):
         """Load blog data from argument or persistent storage."""
         if blog_data is None:
-            blog_data = read_json_file(BLOG_FILE_PATH)
+            blog_data = read_json_file(self.blog_file_path)
         self.posts = [Post(**item) for item in blog_data]
 
 

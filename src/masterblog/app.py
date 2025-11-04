@@ -6,10 +6,10 @@ and liking blog posts. It initializes the Blog model and handles
 routing requests to the appropriate templates or actions.
 """
 from flask import Flask, render_template, abort, redirect, url_for, request
-from masterblog.config import TEMPLATES_PATH, STATIC_PATH
+from masterblog.config import TEMPLATES_PATH, STATIC_PATH, BLOG_FILE_PATH, SEQUENCE_FILE_PATH
 from masterblog.models.blog import Blog
 
-my_blog = Blog()
+my_blog = Blog(BLOG_FILE_PATH, SEQUENCE_FILE_PATH)
 
 app = Flask(__name__, template_folder=TEMPLATES_PATH, static_folder=STATIC_PATH)
 
@@ -56,7 +56,7 @@ def like(post_id):
     Redirect to single post view afterward.
     """
     post_obj = get_post_obj_or_404(post_id)
-    post_obj.like()
+    my_blog.like(post_object=post_obj)
     return redirect(url_for('show', post_id=post_id))
 
 

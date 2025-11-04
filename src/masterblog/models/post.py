@@ -4,12 +4,12 @@
 class Post:
     """Represent a specific post in a blog."""
 
-    def __init__(self, author: str, title: str, content: str, likes: int = 0, post_id: int = -1):
+    def __init__(self, author: str, title: str, content: str, likes: int = 0, id: int = -1):
         """Create a new Post instance."""
         # pylint: disable=too-many-arguments
         # pylint: disable=too-many-positional-arguments
         # All attributes are necessary to represent a blog post
-        self.id = post_id
+        self.id = id
         self.author = author
         self.title = title
         self.content = content

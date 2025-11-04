@@ -81,7 +81,7 @@ The project demonstrates:
 ├── Data            	 # JSON data storage
 │   └── .gitkeep		 # Keeps Data dir in Git
 ├── src/                 # Main application source code
-│   └── myapp
+│   └── masterblog
 │       ├── app.py       # Flask app with routes
 │       ├── config.py    # Centralized configuration and paths
 │       ├── models/      # Data models
@@ -113,7 +113,7 @@ For experienced users who just want to get the app running:
 git clone https://github.com/paul-wosch/Masterblog.git \
 && cd Masterblog \
 && pip install -e . \
-&& python src/myapp/app.py
+&& python src/masterblog/app.py
 ```
 Then open [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser.  
 On a fresh install, you’ll see a message with a link to **Add Post**.  
@@ -145,7 +145,7 @@ On a fresh install, you’ll see a message with a link to **Add Post**.
 
 5. **Run the app**:  
    ```bash
-   python src/myapp/app.py
+   python src/masterblog/app.py
    ```
 
 6. **Access the app**:  
@@ -161,7 +161,7 @@ On a fresh install, you’ll see a message with a link to **Add Post**.
      deactivate
      ```
 
-The `pip install -e .` makes `myapp` importable, ensuring `app.py` can resolve imports correctly.  
+The `pip install -e .` makes `masterblog` importable, ensuring `app.py` can resolve imports correctly.  
 
 ---
 

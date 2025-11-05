@@ -82,7 +82,6 @@ class Blog:
         if post_id is None and post_object is None:
             raise TypeError("Missing argument: post_object or post_id.")
         # Use existing post object or get one from post id
-        print("retrieve post object")
         if post_id is not None and post_object is None:
             post_object = self.get(post_id)
         # Like post and save blog posts

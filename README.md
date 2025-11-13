@@ -11,15 +11,15 @@
 
 ## 📑 Table of Contents  
 
-- [⚠️ Disclaimer](#-disclaimer)  
+- [⚠️ Disclaimer](#%EF%B8%8F-disclaimer)  
 - [📝 Description](#-description)  
 - [✨ Features](#-features)  
-- [🛠️ Tech Stack](#-tech-stack)  
+- [🛠️ Tech Stack](#%EF%B8%8F-tech-stack)  
 - [📦 Key Dependencies](#-key-dependencies)  
 - [📁 Project Structure](#-project-structure)  
-- [🛠️ Development Setup](#-development-setup)  
+- [🛠️ Development Setup](#%EF%B8%8F-development-setup)  
   - [🚀 Quick Start](#-quick-start)  
-  - [📖 Step‑by‑Step Guide](#-step-by-step-guide)  
+  - [📖 Step‑by‑Step Guide](#-stepbystep-guide)  
 - [👥 Contributing](#-contributing)  
 - [📄 License](#-license)  
 
